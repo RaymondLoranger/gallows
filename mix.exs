@@ -42,7 +42,13 @@ defmodule Gallows.MixProject do
       {:telemetry_metrics, "~> 0.6"},
       {:telemetry_poller, "~> 1.0"},
       {:jason, "~> 1.2"},
-      {:plug_cowboy, "~> 2.5"}
+      {:plug_cowboy, "~> 2.5"},
+      # Added dependencies...
+      {:dialyxir, "~> 1.0", only: :dev, runtime: false},
+      {:ex_doc, "~> 0.22", only: :dev, runtime: false},
+      {:logger_file_backend, "~> 0.0.11"},
+      {:log_reset, "~> 0.1"},
+      {:phx_formatter, "~> 0.1", only: :dev, runtime: false}
     ]
   end
 
