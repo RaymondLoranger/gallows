@@ -13,10 +13,12 @@ config :gallows, GallowsWeb.Endpoint,
   check_origin: false,
   code_reloader: true,
   debug_errors: true,
-  secret_key_base: "WV3hRNAklJB0+Ay+rp3Wuj/ttUPtMO/4qLyMzHmkGrTtUivipYkySwKM5PUC/ZrR",
+  secret_key_base:
+    "WV3hRNAklJB0+Ay+rp3Wuj/ttUPtMO/4qLyMzHmkGrTtUivipYkySwKM5PUC/ZrR",
   watchers: [
     # Start the esbuild watcher by calling Esbuild.install_and_run(:default, args)
-    esbuild: {Esbuild, :install_and_run, [:default, ~w(--sourcemap=inline --watch)]}
+    esbuild:
+      {Esbuild, :install_and_run, [:default, ~w(--sourcemap=inline --watch)]}
   ]
 
 # ## SSL Support

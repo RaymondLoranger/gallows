@@ -4,7 +4,8 @@ import Config
 # you can enable the server option below.
 config :gallows, GallowsWeb.Endpoint,
   http: [ip: {127, 0, 0, 1}, port: 4002],
-  secret_key_base: "COlWk+Qc0owmoLWkHH1Q1buO7InFyxTx+d9WaYCzEKNByX5yi0kzDJ6Mi+NpL3qp",
+  secret_key_base:
+    "COlWk+Qc0owmoLWkHH1Q1buO7InFyxTx+d9WaYCzEKNByX5yi0kzDJ6Mi+NpL3qp",
   server: false
 
 # Print only warnings and errors during test

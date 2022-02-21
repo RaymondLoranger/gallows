@@ -10,7 +10,11 @@ import Config
 # Configures the endpoint
 config :gallows, GallowsWeb.Endpoint,
   url: [host: "localhost"],
-  render_errors: [view: GallowsWeb.ErrorView, accepts: ~w(html json), layout: false],
+  render_errors: [
+    view: GallowsWeb.ErrorView,
+    accepts: ~w(html json),
+    layout: false
+  ],
   pubsub_server: Gallows.PubSub,
   live_view: [signing_salt: "uCkUMyHB"]
 
