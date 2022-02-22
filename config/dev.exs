@@ -16,9 +16,11 @@ config :gallows, GallowsWeb.Endpoint,
   secret_key_base:
     "WV3hRNAklJB0+Ay+rp3Wuj/ttUPtMO/4qLyMzHmkGrTtUivipYkySwKM5PUC/ZrR",
   watchers: [
-    # Start the esbuild watcher by calling Esbuild.install_and_run(:default, args)
+    # Start the esbuild watcher by calling Esbuild.install_and_run/2
     esbuild:
-      {Esbuild, :install_and_run, [:default, ~w(--sourcemap=inline --watch)]}
+      {Esbuild, :install_and_run, [:default, ~w(--sourcemap=inline --watch)]},
+    # Add Tailwind to list of watchers
+    tailwind: {Tailwind, :install_and_run, [:default, ~w(--watch)]}
   ]
 
 # ## SSL Support

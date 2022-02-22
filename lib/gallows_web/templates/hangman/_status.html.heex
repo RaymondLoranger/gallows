@@ -1,0 +1,32 @@
+<p id="word-so-far" class="font-mono">
+  Word so far: &nbsp;<%= space_letters(@tally.letters) %>
+</p>
+<p class="font-mono">
+  Guesses left: <%= @tally.turns_left %>
+</p>
+<p class="font-mono">
+  Letters used: <%= space_letters(@tally.guesses) %>
+</p>
+
+<%= if game_over?(@tally) do %>
+  <%= new_game_button(@conn) %>
+<% else %>
+  <%= form_for @conn, Routes.hangman_path(@conn, :make_move),
+  [as: :make_move, method: :put], fn f -> %>
+    <div class="flex space-x-4">
+      <%= text_input f, :guess, autofocus: "true", class: "w-12" %>
+      <%= submit_next_move() %>
+    </div>
+    <%= text_input f, :game_name, hidden: "true", value: @game_name %>
+  <% end %>
+
+  <.form let={f} for={@conn}>
+    <div class="flex space-x-4">
+    <%= text_input f, :guess, autofocus: "true", class: "w-12" %>
+    <%= submit_next_move() %>
+    </div>
+    <%= text_input f, :game_name, hidden: "true", value: @game_name %>
+  </.form>
+<% end %>
+
+<%= game_state(@tally) %>

@@ -44,11 +44,14 @@ defmodule Gallows.MixProject do
       {:jason, "~> 1.2"},
       {:plug_cowboy, "~> 2.5"},
       # Added dependencies...
+      {:tailwind, "~> 0.1", runtime: Mix.env() == :dev},
       {:dialyxir, "~> 1.0", only: :dev, runtime: false},
-      {:ex_doc, "~> 0.22", only: :dev, runtime: false},
+      # {:ex_doc, "~> 0.22", only: :dev, runtime: false},
       {:logger_file_backend, "~> 0.0.11"},
       {:log_reset, "~> 0.1"},
-      {:phx_formatter, "~> 0.1", only: :dev, runtime: false}
+      {:phx_formatter, "~> 0.1", only: :dev, runtime: false},
+      {:hangman_engine, "~> 0.1"},
+      {:hangman_game, "~> 0.1.20"}
     ]
   end
 
@@ -61,7 +64,11 @@ defmodule Gallows.MixProject do
   defp aliases do
     [
       setup: ["deps.get"],
-      "assets.deploy": ["esbuild default --minify", "phx.digest"]
+      "assets.deploy": [
+        "tailwind default --minify",
+        "esbuild default --minify",
+        "phx.digest"
+      ]
     ]
   end
 end
