@@ -6,7 +6,7 @@ defmodule GallowsWeb.HangmanController do
 
   require Logger
 
-  @spec new_game(Conn.t(), map) :: Conn.t()
+  @spec new_game(Conn.t(), Conn.params()) :: Conn.t()
   def new_game(conn, _params) do
     render conn, "new_game.html"
   end
