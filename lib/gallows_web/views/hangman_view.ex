@@ -25,14 +25,14 @@ defmodule GallowsWeb.HangmanView do
   def new_game_button(conn) do
     button("New Game",
       autofocus: true,
-      class: "primary-btn",
+      class: "primary-btn w-full",
       to: Routes.hangman_path(conn, :create_game)
     )
   end
 
-  @spec submit_next_move :: HTML.safe()
-  def submit_next_move,
-    do: submit("Guess letter", class: "primary-btn")
+  @spec submit_move :: HTML.safe()
+  def submit_move,
+    do: submit("Guess letter", class: "primary-btn w-full")
 
   @spec space_letters([Game.letter() | charlist]) :: HTML.safe()
   def space_letters(letters) do
@@ -59,11 +59,10 @@ defmodule GallowsWeb.HangmanView do
   @spec state(Keyword.t()) :: HTML.safe()
   defp state([{type, message}]) do
     """
-    <div class="state state-<%=type%>">
-      <%=message%>
+    <div class="state state-#{type}">
+      #{message}
     </div>
     """
-    |> EEx.eval_string(type: type, message: message)
     |> HTML.raw()
   end
 end

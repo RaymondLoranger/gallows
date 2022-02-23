@@ -1,0 +1,43 @@
+<p id="word-so-far" class="font-mono">
+  Word so far: &nbsp;
+  <span class="font-bold"><%= space_letters(@tally.letters) %></span>
+</p>
+
+<p class="font-mono">
+  <%= if @tally.turns_left == 1 do %>
+    <span class="text-red-700 font-bold">
+      Guesses left: <%= @tally.turns_left %>
+    </span>
+  <% else %>
+    Guesses left: <%= @tally.turns_left %>
+  <% end %>
+</p>
+
+<p class="font-mono">
+  Letters used: <%= space_letters(@tally.guesses) %>
+</p>
+
+<div>
+  <div class="md:mt-2">
+    <%= if game_over?(@tally) do %>
+      <%= new_game_button(@conn) %>
+    <% else %>
+      <%# See "_control_old.html.heex" using older 'form_for'... %>
+      <.form let={f} for={@conn} action={Routes.hangman_path(@conn, :make_move)}
+      as="make_move" method="put">
+        <div class="md:mt-2 flex space-x-4">
+          <%= text_input f, :guess, autofocus: "true", class: "w-12",
+          required: "true", pattern: "[a-z]", placeholder: "a-z" %>
+          <%= submit_move() %>
+        </div>
+        <%= text_input f, :game_name, hidden: "true", value: @game_name %>
+      </.form>
+    <% end %>
+  </div>
+</div>
+
+<div>
+  <div class="md:mt-4">
+    <%= game_state(@tally) %>
+  </div>
+</div>

@@ -1,4 +1,13 @@
+# ┌──────────────────────────────────────────────────────────────┐
+# │ Based on the course "Elixir for Programmers" by Dave Thomas. │
+# └──────────────────────────────────────────────────────────────┘
 defmodule GallowsWeb.Router do
+  @moduledoc """
+  Web client for the _Hangman Game_.
+
+  ##### Based on the course [Elixir for Programmers](https://codestool.coding-gnome.com/courses/elixir-for-programmers) by Dave Thomas.
+  """
+
   use GallowsWeb, :router
 
   pipeline :browser do
