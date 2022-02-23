@@ -1,5 +1,9 @@
 # Gallows
 
+Web client for the _Hangman Game_.
+
+##### Based on the course [Elixir for Programmers](https://codestool.coding-gnome.com/courses/elixir-for-programmers) by Dave Thomas.
+
 To start your Phoenix server:
 
   * Install dependencies with `mix deps.get`
