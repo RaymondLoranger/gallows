@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .state {
-  @apply p-1 mb-2 border-2 border-transparent rounded-md text-center text-xl;
+  @apply p-1 mb-2 border-2 rounded text-center text-xl;
 }
 .state-success {
   @apply border-green-400 bg-green-300 text-green-900;

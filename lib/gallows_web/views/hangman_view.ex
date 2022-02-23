@@ -54,7 +54,7 @@ defmodule GallowsWeb.HangmanView do
   ## Private functions
 
   @spec reveal(String.codepoint()) :: String.t()
-  defp reveal(letter), do: ~s|<span class="opacity-30">#{letter}</span>|
+  defp reveal(letter), do: ~s|<span class="opacity-40">#{letter}</span>|
 
   @spec state(Keyword.t()) :: HTML.safe()
   defp state([{type, message}]) do
