@@ -4,7 +4,7 @@ defmodule Gallows.MixProject do
   def project do
     [
       app: :gallows,
-      version: "0.1.4",
+      version: "0.1.5",
       elixir: "~> 1.12",
       elixirc_paths: elixirc_paths(Mix.env()),
       compilers: Mix.compilers(),
