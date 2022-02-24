@@ -20,7 +20,7 @@
 <div>
   <div class="md:mt-2">
     <%= if game_over?(@tally) do %>
-      <%= new_game_button(@conn) %>
+      <%= new_game_button(@conn, "w-full") %>
     <% else %>
       <%# See "_control_old.html.heex" using older 'form_for'... %>
       <.form let={f} for={@conn} action={Routes.hangman_path(@conn, :make_move)}

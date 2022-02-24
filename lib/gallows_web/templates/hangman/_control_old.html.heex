@@ -11,7 +11,7 @@
 </p>
 
 <%= if game_over?(@tally) do %>
-  <%= new_game_button(@conn) %>
+  <%= new_game_button(@conn, "w-full") %>
 <% else %>
   <%# See "_control_.html.heex" for new <.form...> equivalent... %>
   <%= form_for @conn, Routes.hangman_path(@conn, :make_move),

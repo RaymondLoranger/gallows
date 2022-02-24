@@ -21,11 +21,11 @@ defmodule GallowsWeb.HangmanView do
   def game_over?(%{game_state: game_state} = _tally),
     do: game_state in [:won, :lost]
 
-  @spec new_game_button(Conn.t()) :: HTML.safe()
-  def new_game_button(conn) do
+  @spec new_game_button(Conn.t(), String.t()) :: HTML.safe()
+  def new_game_button(conn, width) do
     button("New Game",
       autofocus: true,
-      class: "primary-btn w-full",
+      class: "primary-btn #{width}",
       to: Routes.hangman_path(conn, :create_game)
     )
   end
