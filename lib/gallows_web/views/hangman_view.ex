@@ -13,7 +13,7 @@ defmodule GallowsWeb.HangmanView do
   @spec opacities(0..7) :: map
   def opacities(turns_left) do
     for {id, index} <- @indexed_ids, into: %{} do
-      {id, if(index < turns_left, do: "0.2", else: "1.0")}
+      {id, if(index < turns_left, do: "opacity-20", else: "opacity-100")}
     end
   end
 
