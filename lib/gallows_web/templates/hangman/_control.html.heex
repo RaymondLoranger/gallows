@@ -24,7 +24,7 @@
     <% else %>
       <%# See "_control_old.html.heex" using older 'form_for'... %>
       <.form let={f} for={@conn} action={Routes.hangman_path(@conn, :make_move)}
-      as="make_move" method="put">
+          as="make_move" method="put">
         <div class="md:mt-2 flex space-x-4">
           <%= text_input f, :guess, autofocus: "true", class: "w-12",
           required: "true", pattern: "[a-z]", placeholder: "a-z" %>
