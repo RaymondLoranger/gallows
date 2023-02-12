@@ -22,15 +22,23 @@
     <%= if game_over?(@tally) do %>
       <%= new_game_button(@conn, "w-full") %>
     <% else %>
-      <%# See "_control_old.html.heex" using older 'form_for'... %>
-      <.form let={f} for={@conn} action={Routes.hangman_path(@conn, :make_move)}
-          as="make_move" method="put">
+      <.form
+        let={f}
+        for={@conn}
+        action={Routes.hangman_path(@conn, :make_move)}
+        as="make_move"
+        method="put"
+      >
         <div class="md:mt-2 flex space-x-4">
-          <%= text_input f, :guess, autofocus: "true", class: "w-12",
-          required: "true", pattern: "[a-z]", placeholder: "a-z" %>
-          <%= submit_move() %>
+          <%= text_input(f, :guess,
+            autofocus: "true",
+            class: "w-12",
+            required: "true",
+            pattern: "[a-z]",
+            placeholder: "a-z"
+          ) %> <%= submit_move() %>
         </div>
-        <%= text_input f, :game_name, hidden: "true", value: @game_name %>
+        <%= text_input(f, :game_name, hidden: "true", value: @game_name) %>
       </.form>
     <% end %>
   </div>

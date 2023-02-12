@@ -7,17 +7,12 @@ defmodule GallowsWeb.HangmanView do
   alias Phoenix.HTML
   alias Plug.Conn
 
-  @ids [:arm1, :arm2, :leg1, :leg2, :body, :head, :rope]
-  @indexed_ids Enum.with_index(@ids)
-
   ## Private functions
 
-  @spec opacities(0..7) :: map
-  defp opacities(turns_left) do
-    for {id, index} <- @indexed_ids, into: %{} do
-      {id, if(index < turns_left, do: "opacity-20", else: "opacity-100")}
-    end
-  end
+  # rope, head, body, leg2, leg1, arm2, arm1
+  @spec dim_if(boolean) :: String.t()
+  defp dim_if(_dim? = true), do: "opacity-20"
+  defp dim_if(_dim?), do: "opacity-100"
 
   @spec game_over?(Game.tally()) :: boolean
   defp game_over?(%{game_state: game_state} = _tally),
